@@ -1,11 +1,15 @@
 class Api::V1::ListenersController < ApplicationController
 
-  before_action :find_listener, only: [:update]
+  before_action :find_listener, only: [:show, :update, :favorites]
 
   def index
     @listeners = Listener.all
 
      render json: {listeners: @listeners}
+  end
+
+  def show
+    render json: {listener: @listener}
   end
 
   def new
@@ -14,6 +18,11 @@ class Api::V1::ListenersController < ApplicationController
   def create
     @listener = Listener.create(listener_params)
     render json: {listener: @listener}, status: :accepted
+  end
+
+  def favorites
+    favorites = @listener.bands
+    render json: {favorites: favorites}
   end
 
   # def update

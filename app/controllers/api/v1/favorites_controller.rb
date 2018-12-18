@@ -1,10 +1,20 @@
 class Api::V1::FavoritesController < ApplicationController
+
   before_action :find_favorite, only: [:update]
+
   def index
     @favorites = Favorite.all
-
-     render json: {favorites: @favorites}
+    render json: {favorites: @favorites}
   end
+
+  def new
+  end
+
+  def create
+    @favorite = Favorite.create(favorite_params)
+    render json: {favorite: @favorite}, status: :accepted
+  end
+
 
   # def update
   #   @favorite.update(note_params)
@@ -18,7 +28,7 @@ class Api::V1::FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.permit(:favorite_name, :bio)
+    params.require(:favorite).permit(:band_id, :listener_id)
   end
 
   def find_favorite

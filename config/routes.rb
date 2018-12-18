@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :bands
-      resources :favorites
-      resources :listeners
+      resources :favorites, only: [:index, :new, :create]
+      get '/listeners/:id/favorites', to: 'listeners#favorites'
+      resources :listeners, only: [:index, :show, :new, :create]
       resources :accounts
     end
   end
