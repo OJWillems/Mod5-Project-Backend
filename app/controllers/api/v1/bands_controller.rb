@@ -1,6 +1,6 @@
 class Api::V1::BandsController < ApplicationController
 
-  before_action :find_band, only: [:update]
+  before_action :find_band, only: [:update, :questions]
 
   def index
     @bands = Band.all
@@ -14,6 +14,11 @@ class Api::V1::BandsController < ApplicationController
   def create
     @band = Band.create(band_params)
     render json: {band: @band}, status: :accepted
+  end
+
+  def questions
+    questions = @band.questions
+    render json: {questions: questions}
   end
 
   # def update

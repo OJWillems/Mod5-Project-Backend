@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       resources :favorites, only: [:index, :show, :new, :create, :destroy]
       get '/listeners/:id/favorites', to: 'listeners#favorites'
       resources :listeners, only: [:index, :show, :new, :create]
-      resources :accounts
+      get '/bands/:id/questions', to: 'bands#questions'
+      resources :questions
+      resources :answers
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
