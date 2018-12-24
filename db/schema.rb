@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_190741) do
     t.integer "band_id"
     t.integer "listener_id"
     t.string "question_response"
+    t.boolean "has_answered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
