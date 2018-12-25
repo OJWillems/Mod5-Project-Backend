@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/listeners/:id/favorites', to: 'listeners#favorites'
       resources :listeners, only: [:index, :show, :new, :create]
       get '/bands/:id/questions', to: 'bands#questions'
+      get '/questions/:id/answer', to: 'questions#answer'
       resources :questions
       resources :answers
     end

@@ -6,6 +6,10 @@ class Api::V1::AnswersController < ApplicationController
     render json: {answers: @answers}
   end
 
+  def show
+    render json: {answer: @answer}
+  end
+
   def new
   end
 
