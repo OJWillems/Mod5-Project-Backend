@@ -32,7 +32,7 @@ class Api::V1::BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:username, :password, :band_name, :bio)
+    params.require(:band).permit(:username, :password, :band_name, :bio, :img_url)
   end
 
   def find_band

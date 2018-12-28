@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_190741) do
     t.string "password"
     t.string "band_name"
     t.string "bio"
+    t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
