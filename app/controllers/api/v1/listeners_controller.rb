@@ -37,7 +37,7 @@ class Api::V1::ListenersController < ApplicationController
   private
 
   def listener_params
-    params.require(:listener).permit(:username, :password)
+    params.require(:listener).permit(:username, :password, :name)
   end
 
   def find_listener
