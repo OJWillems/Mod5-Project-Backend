@@ -32,6 +32,11 @@ class Api::V1::QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    # render json: {favorite: @favorite}
+    @question.destroy
+  end
+
   private
 
   def question_params
